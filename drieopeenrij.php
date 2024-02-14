@@ -10,7 +10,7 @@ use Shapes\Square;
 use Shapes\Triangle;
 
 abstract class Figure {
-    protected string $color;
+    private string $color;
 
     public function __construct($color) {
         $this->color = $color;
@@ -24,7 +24,7 @@ abstract class Figure {
 }
 
 class Circle extends Figure {
-    public int $radius;
+    private int $radius;
 
     public function __construct($color, $radius) {
         parent::__construct($color);
@@ -39,8 +39,8 @@ class Circle extends Figure {
 }
 
 class Rectangle extends Figure {
-    public int $width;
-    public int $height;
+    private int $width;
+    private int $height;
 
     public function __construct($color, $width, $height) {
         parent::__construct($color);
@@ -56,7 +56,7 @@ class Rectangle extends Figure {
 }
 
 class Square extends Figure {
-    public int $length;
+    private int $length;
 
     public function __construct($color, $length) {
         parent::__construct($color);
@@ -71,8 +71,8 @@ class Square extends Figure {
 }
 
 class Triangle extends Figure {
-    public int $width;
-    public int $height;
+    private int $width;
+    private int $height;
 
     public function __construct($color, $width, $height) {
         parent::__construct($color);
