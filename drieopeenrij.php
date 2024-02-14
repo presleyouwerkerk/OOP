@@ -4,11 +4,6 @@
 
 namespace Shapes;
 
-use Shapes\Circle;
-use Shapes\Rectangle;
-use Shapes\Square;
-use Shapes\Triangle;
-
 abstract class Figure {
     private string $color;
 
