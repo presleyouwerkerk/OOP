@@ -82,7 +82,7 @@ class Triangle extends Figure {
 
     public function draw(): string {
         return "<svg height='{$this->height}' width='{$this->width}' xmlns='http://www.w3.org/2000/svg'>
-        <polygon points='0,{$this->height} {$this->width},{$this->height} " . ($this->width / 2) . ",0' stroke='black' stroke-width='3' fill='{$this->color}' />
+        <polygon points='0,{$this->height} {$this->width},{$this->height} " . ($this->width / 2) . ",0' stroke='black' stroke-width='3' fill='{$this->getColor()}' />
         </svg>";
     }
 }
