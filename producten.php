@@ -12,7 +12,11 @@ abstract class Product {
 
     public function __construct($name, $purchasePrice, $tax,
     $profit, $description) {
-
+        $this->name = $name;
+        $this->purchasePrice = $purchasePrice;
+        $this->tax = $tax;
+        $this->profit = $profit;
+        $this->description = $description;
     }
 }
 
@@ -20,8 +24,7 @@ class ProductList {
 
 }
 
-namespace Shop\Entertainment;
-use Shop\Product;
+namespace Shop\Producten;
 
 class Game extends Product {
 
