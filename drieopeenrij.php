@@ -33,7 +33,7 @@ class Circle extends Figure {
 
     public function draw(): string {
         return "<svg height='100' width='100' xmlns='http://www.w3.org/2000/svg'>
-        <circle r='{$this->radius}' cx='50' cy='50' stroke='black' stroke-width='3' fill='{$this->color}' />
+        <circle r='{$this->radius}' cx='50' cy='50' stroke='black' stroke-width='3' fill='{$this->getColor()}' />
         </svg>";
     }
 }
@@ -50,7 +50,7 @@ class Rectangle extends Figure {
 
     public function draw(): string {
         return "<svg width='{$this->width}' height='{$this->height}' xmlns='http://www.w3.org/2000/svg'>
-        <rect width='{$this->width}' height='{$this->height}' x='0' y='0' stroke='black' stroke-width='3' fill='{$this->color}' />
+        <rect width='{$this->width}' height='{$this->height}' x='0' y='0' stroke='black' stroke-width='3' fill='{$this->getColor()}' />
         </svg>";
     }
 }
@@ -65,7 +65,7 @@ class Square extends Figure {
 
     public function draw(): string {
         return "<svg width='{$this->length}' height='{$this->length}' xmlns='http://www.w3.org/2000/svg'>
-        <rect width='{$this->length}' height='{$this->length}' x='0' y='0' stroke='black' stroke-width='3' fill='{$this->color}' />
+        <rect width='{$this->length}' height='{$this->length}' x='0' y='0' stroke='black' stroke-width='3' fill='{$this->getColor()}' />
         </svg>";
     }
 }
