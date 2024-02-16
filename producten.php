@@ -163,24 +163,20 @@ $music1->setArtist("OneRepublic");
 $music1->addNumber("Counting Stars");
 $music1->addNumber("Light It Up");
 $music1->setCategory("Music");
-$music1->getInfo();
 
 $music2 = new Music("Future Nostalgia", 3, 21, 2.50, "Futuristische muziek!");
 $music2->setArtist("Dua Lipa");
 $music2->addNumber("Don't Start Now");
 $music2->addNumber("Physical");
 $music2->setCategory("Music");
-$music2->getInfo();
 
 $movie1 = new Movie("Spiderman", 6.99, 21, 3.50, "Spannende film!");
 $movie1->setQuality("DVD");
 $movie1->setCategory("Movie");
-$movie1->getInfo();
 
 $movie2 = new Movie("Spiderman 2", 7.99, 21, 3.50, "Het vervolg van Spiderman!");
 $movie2->setQuality("Blu-ray");
 $movie2->setCategory("Movie");
-$movie2->getInfo();
 
 $game1 = new Game("Call of Duty", 25.99, 21, 5.00, "Uitdagend spel!");
 $game1->setGenre("FPS");
@@ -188,7 +184,6 @@ $game1->addRequirements("OS: Windows");
 $game1->addRequirements("Processor: Intel Core i7");
 $game1->addRequirements("Memory: 16 GB");
 $game1->setCategory("Game");
-$game1->getInfo();
 
 $game2 = new Game("GTA V", 7.99, 21, 2.50, "Gewelddadig spel!");
 $game2->setGenre("FPS");
@@ -196,7 +191,6 @@ $game2->addRequirements("OS: Windows");
 $game2->addRequirements("Processor: Intel Core i5");
 $game2->addRequirements("Memory: 16 GB");
 $game2->setCategory("Game");
-$game2->getInfo();
 
 $list1 = new ProductList;
 $list1->addProduct($music1);
