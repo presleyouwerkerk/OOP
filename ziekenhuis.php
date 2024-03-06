@@ -21,7 +21,6 @@ abstract class Person
         $this->hairColor = $hairColor;
         $this->height = $height;
         $this->weight = $weight;
-        $this->role = $role;
     }
 
     public function getName(): string 
@@ -59,7 +58,8 @@ class Patient extends Person
     public function __construct(string $name, string $eyeColor, 
     string $hairColor, float $height, float $weight, float $payment) 
     {
-        parent::__construct($name, $eyeColor, $hairColor, $height, $weight);
+        parent::__construct($name, $eyeColor, $hairColor, $height, 
+        $weight);
         $this->payment = $payment;
     }
 
@@ -83,6 +83,13 @@ abstract class Staff extends Person
 
 class Doctor extends Staff 
 {
+    public function __construct(string $name, string $eyeColor, 
+    string $hairColor, float $height, float $weight) 
+    {
+        parent::__construct($name, $eyeColor, $hairColor, 
+        $height, $weight);
+    }
+
     public function setSalary(float $amount) 
     {
         $this->salary = $amount;
@@ -100,7 +107,7 @@ class Doctor extends Staff
 
     public function getDoctorSalary(): float 
     {
-        $appointment = new Appointment;
+        $appointment = $this->getCurrentAppointment();
         $costs = $this->getCosts();
         $totalCosts = $costs[0];
         return $totalCosts;
@@ -109,6 +116,13 @@ class Doctor extends Staff
 
 class Nurse extends Staff 
 {
+    public function __construct(string $name, string $eyeColor, 
+    string $hairColor, float $height, float $weight) 
+    {
+        parent::__construct($name, $eyeColor, 
+        $hairColor, $height, $weight);
+    }
+
     public function setSalary(float $amount) 
     {
         $this->salary = $amount;
@@ -137,7 +151,7 @@ class Appointment
 {
     private Patient $patient;
     private Doctor $doctor;
-    private array $nurses;
+    private array $nurses = [];
     private \DateTime $beginTime;
     private \DateTime $endTime;
     private static int $count = 0;
@@ -151,7 +165,7 @@ class Appointment
         $this->nurses = $nurses;
         $this->beginTime = $beginTime;
         $this->endTime = $endTime;
-        self::$appointments[] = $appointment;
+        self::$appointments[] = $this;
         self::$count++;
     }
 
