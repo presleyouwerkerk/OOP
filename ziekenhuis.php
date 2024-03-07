@@ -303,7 +303,7 @@ echo "</table>";
 $patient = new Patient("Alice", "Blue", "Blonde", 165, 55);
 $patient->setRole("Patient");
 
-$doctor = new Doctor("Dr. Johnson", "Green", "Brown", 180, 75);
+$doctor = new Doctor("Dr. James", "Green", "Brown", 180, 75);
 $doctor->setSalary(150);
 $doctor->setRole("Doctor");
 
