@@ -7,20 +7,11 @@ namespace Ziekenhuis;
 abstract class Person 
 {
     private string $name;
-    private string $eyeColor;
-    private string $hairColor;
-    private float $height;
-    private float $weight;
     protected string $role;
 
-    public function __construct(string $name, string $eyeColor, 
-    string $hairColor, float $height, float $weight) 
+    public function __construct(string $name) 
     {
         $this->name = $name;
-        $this->eyeColor = $eyeColor;
-        $this->hairColor = $hairColor;
-        $this->height = $height;
-        $this->weight = $weight;
     }
 
     public function getName(): string 
@@ -28,6 +19,31 @@ abstract class Person
         return $this->name;
     }
 
+    abstract public function setRole(string $role);
+
+    public function getRole(): string 
+    {
+        return $this->role;
+    }
+}
+
+class Patient extends Person 
+{
+    private string $eyeColor;
+    private string $hairColor;
+    private float $height;
+    private float $weight;
+
+    public function __construct(string $name, string $eyeColor, 
+    string $hairColor, float $height, float $weight) 
+    {
+        $this->eyeColor = $eyeColor;
+        $this->hairColor = $hairColor;
+        $this->height = $height;
+        $this->weight = $weight;
+        parent::__construct($name);
+    }
+    
     public function getEyeColor(): string
     {
         return $this->eyeColor;
@@ -48,23 +64,6 @@ abstract class Person
         return $this->weight;
     }
 
-    abstract public function setRole(string $role);
-
-    public function getRole(): string 
-    {
-        return $this->role;
-    }
-}
-
-class Patient extends Person 
-{
-    public function __construct(string $name, string $eyeColor, 
-    string $hairColor, float $height, float $weight) 
-    {
-        parent::__construct($name, $eyeColor, $hairColor, $height, 
-        $weight);
-    }
-
     public function setRole(string $role) 
     {
         $this->role = $role;
@@ -80,11 +79,9 @@ abstract class Staff extends Person
 
 class Doctor extends Staff 
 {
-    public function __construct(string $name, string $eyeColor, 
-    string $hairColor, float $height, float $weight) 
+    public function __construct(string $name) 
     {
-        parent::__construct($name, $eyeColor, $hairColor, 
-        $height, $weight);
+        parent::__construct($name);
     }
 
     public function setSalary(float $amount) 
@@ -105,11 +102,9 @@ class Doctor extends Staff
 
 class Nurse extends Staff 
 {
-    public function __construct(string $name, string $eyeColor, 
-    string $hairColor, float $height, float $weight) 
+    public function __construct(string $name) 
     {
-        parent::__construct($name, $eyeColor, 
-        $hairColor, $height, $weight);
+        parent::__construct($name);
     }
 
     public function setSalary(float $amount) 
@@ -273,20 +268,12 @@ echo "</ul></td></tr>";
 
 echo "<tr><td>" . $doctor->getRole() . "</td><td><ul>";
 echo "<li>Name: " . $doctor->getName() . "</li>";
-echo "<li>Eye Color: " . $doctor->getEyeColor() . "</li>";
-echo "<li>Hair Color: " . $doctor->getHairColor() . "</li>";
-echo "<li>Height: " . $doctor->getHeight() . " cm</li>";
-echo "<li>Weight: " . $doctor->getWeight() . " kg</li>";
 echo "<li>Salary: $" . number_format($appointment->calculateTotalSalaries()[0], 2) . "</li>";
 echo "</ul></td></tr>";
 
 foreach ($appointment->getNurses() as $index => $nurse) {
     echo "<tr><td>" . $nurse->getRole() . "</td><td><ul>";
     echo "<li>Name: " . $nurse->getName() . "</li>";
-    echo "<li>Eye Color: " . $nurse->getEyeColor() . "</li>";
-    echo "<li>Hair Color: " . $nurse->getHairColor() . "</li>";
-    echo "<li>Height: " . $nurse->getHeight() . " cm</li>";
-    echo "<li>Weight: " . $nurse->getWeight() . " kg</li>";
     echo "<li>Salary: $" . number_format($appointment->calculateTotalSalaries()[1][$index], 2) . "</li>";
     echo "</ul></td></tr>";
 }
@@ -330,20 +317,12 @@ echo "</ul></td></tr>";
 
 echo "<tr><td>" . $doctor->getRole() . "</td><td><ul>";
 echo "<li>Name: " . $doctor->getName() . "</li>";
-echo "<li>Eye Color: " . $doctor->getEyeColor() . "</li>";
-echo "<li>Hair Color: " . $doctor->getHairColor() . "</li>";
-echo "<li>Height: " . $doctor->getHeight() . " cm</li>";
-echo "<li>Weight: " . $doctor->getWeight() . " kg</li>";
 echo "<li>Salary: $" . number_format($appointment->calculateTotalSalaries()[0], 2) . "</li>";
 echo "</ul></td></tr>";
 
 foreach ($appointment->getNurses() as $index => $nurse) {
     echo "<tr><td>" . $nurse->getRole() . "</td><td><ul>";
     echo "<li>Name: " . $nurse->getName() . "</li>";
-    echo "<li>Eye Color: " . $nurse->getEyeColor() . "</li>";
-    echo "<li>Hair Color: " . $nurse->getHairColor() . "</li>";
-    echo "<li>Height: " . $nurse->getHeight() . " cm</li>";
-    echo "<li>Weight: " . $nurse->getWeight() . " kg</li>";
     echo "<li>Salary: $" . number_format($appointment->calculateTotalSalaries()[1][$index], 2) . "</li>";
     echo "</ul></td></tr>";
 }
@@ -384,20 +363,12 @@ echo "</ul></td></tr>";
 
 echo "<tr><td>" . $doctor->getRole() . "</td><td><ul>";
 echo "<li>Name: " . $doctor->getName() . "</li>";
-echo "<li>Eye Color: " . $doctor->getEyeColor() . "</li>";
-echo "<li>Hair Color: " . $doctor->getHairColor() . "</li>";
-echo "<li>Height: " . $doctor->getHeight() . " cm</li>";
-echo "<li>Weight: " . $doctor->getWeight() . " kg</li>";
 echo "<li>Salary: $" . number_format($appointment->calculateTotalSalaries()[0], 2) . "</li>";
 echo "</ul></td></tr>";
 
 foreach ($appointment->getNurses() as $index => $nurse) {
     echo "<tr><td>" . $nurse->getRole() . "</td><td><ul>";
     echo "<li>Name: " . $nurse->getName() . "</li>";
-    echo "<li>Eye Color: " . $nurse->getEyeColor() . "</li>";
-    echo "<li>Hair Color: " . $nurse->getHairColor() . "</li>";
-    echo "<li>Height: " . $nurse->getHeight() . " cm</li>";
-    echo "<li>Weight: " . $nurse->getWeight() . " kg</li>";
     echo "<li>Salary: $" . number_format($appointment->calculateTotalSalaries()[1][$index], 2) . "</li>";
     echo "</ul></td></tr>";
 }
