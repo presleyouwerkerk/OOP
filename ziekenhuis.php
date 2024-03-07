@@ -365,7 +365,7 @@ echo "</div>";
 $patient = new Patient("Sarah", "Brown", "Black", 170, 65);
 $patient->setRole("Patient");
 
-$doctor = new Doctor("Dr. Rodriguez", "Brown", "Black", 175, 80);
+$doctor = new Doctor("Dr. Jim", "Brown", "Black", 175, 80);
 $doctor->setSalary(125);
 $doctor->setRole("Doctor");
 
