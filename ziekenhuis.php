@@ -58,8 +58,6 @@ abstract class Person
 
 class Patient extends Person 
 {
-    private float $payment;
-
     public function __construct(string $name, string $eyeColor, 
     string $hairColor, float $height, float $weight,) 
     {
@@ -311,10 +309,6 @@ $nurse1 = new Nurse("Emma", "Brown", "Black", 170, 60);
 $nurse1->setSalary(100);
 $nurse1->setRole("Nurse");
 
-// $nurse2 = new Nurse("Emily", "Brown", "Blonde", 160, 50);
-// $nurse2->setSalary(50);
-// $nurse2->setRole("Nurse");
-
 $beginTime = new \DateTime('2024-03-08 10:30');
 $endTime = new \DateTime('2024-03-08 11:05');
 
@@ -368,14 +362,6 @@ $patient->setRole("Patient");
 $doctor = new Doctor("Dr. Jim", "Brown", "Black", 175, 80);
 $doctor->setSalary(125);
 $doctor->setRole("Doctor");
-
-// $nurse1 = new Nurse("Emma", "Blue", "Blonde", 160, 50);
-// $nurse1->setSalary(60);
-// $nurse1->setRole("Nurse");
-
-// $nurse2 = new Nurse("Olivia", "Green", "Brown", 165, 55);
-// $nurse2->setSalary(60);
-// $nurse2->setRole("Nurse");
 
 $beginTime = new \DateTime('2024-03-09 14:45');
 $endTime = new \DateTime('2024-03-09 15:15');
