@@ -28,7 +28,7 @@ abstract class Person
         return $this->name;
     }
 
-    public function geteyeColor(): string
+    public function getEyeColor(): string
     {
         return $this->eyeColor;
     }
@@ -59,7 +59,7 @@ abstract class Person
 class Patient extends Person 
 {
     public function __construct(string $name, string $eyeColor, 
-    string $hairColor, float $height, float $weight,) 
+    string $hairColor, float $height, float $weight) 
     {
         parent::__construct($name, $eyeColor, $hairColor, $height, 
         $weight);
@@ -139,7 +139,7 @@ class Appointment
     private static array $appointments = [];
 
     public function setAppointment(Patient $patient, Doctor $doctor, 
-    array $nurses = [], \DateTime $beginTime, \DateTime $endTime) 
+    array $nurses = [], \DateTime $beginTime, \DateTime $endTime)
     {
         $this->doctor = $doctor;
         $this->nurses = $nurses;
