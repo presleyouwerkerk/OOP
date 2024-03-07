@@ -307,7 +307,7 @@ $doctor = new Doctor("Dr. James", "Green", "Brown", 180, 75);
 $doctor->setSalary(150);
 $doctor->setRole("Doctor");
 
-$nurse1 = new Nurse("Sophia", "Brown", "Black", 170, 60);
+$nurse1 = new Nurse("Emma", "Brown", "Black", 170, 60);
 $nurse1->setSalary(100);
 $nurse1->setRole("Nurse");
 
