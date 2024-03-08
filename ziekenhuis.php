@@ -130,8 +130,8 @@ class Appointment
     private array $nurses;
     private \DateTime $beginTime;
     private \DateTime $endTime;
-    public static int $count = 1;
-    public static array $appointments = [];
+    private static int $count = 0;
+    private static array $appointments = [];
 
     public function setAppointment(Patient $patient, Doctor $doctor, 
     array $nurses = [], \DateTime $beginTime, \DateTime $endTime)
@@ -178,7 +178,7 @@ class Appointment
     }
 
     public static function getCount(): int {
-        return self::$count++;
+        return ++self::$count;
     }
 
     public static function getAppointments(): array
