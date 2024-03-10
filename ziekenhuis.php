@@ -4,46 +4,50 @@
 
 namespace Ziekenhuis;
 
-abstract class Person 
+abstract class Person
 {
     private string $name;
     protected string $role;
 
-    public function __construct(string $name) 
+    public function __construct(string $name)
     {
         $this->name = $name;
     }
 
-    public function getName(): string 
+    public function getName(): string
     {
         return $this->name;
     }
 
     abstract public function setRole(string $role);
 
-    public function getRole(): string 
+    public function getRole(): string
     {
         return $this->role;
     }
 }
 
-class Patient extends Person 
+class Patient extends Person
 {
     private string $eyeColor;
     private string $hairColor;
     private float $height;
     private float $weight;
 
-    public function __construct(string $name, string $eyeColor, 
-    string $hairColor, float $height, float $weight) 
-    {
+    public function __construct(
+        string $name,
+        string $eyeColor,
+        string $hairColor,
+        float $height,
+        float $weight
+    ) {
         $this->eyeColor = $eyeColor;
         $this->hairColor = $hairColor;
         $this->height = $height;
         $this->weight = $weight;
         parent::__construct($name);
     }
-    
+
     public function getEyeColor(): string
     {
         return $this->eyeColor;
@@ -54,76 +58,76 @@ class Patient extends Person
         return $this->hairColor;
     }
 
-    public function getHeight(): float 
+    public function getHeight(): float
     {
         return $this->height;
     }
 
-    public function getWeight(): float 
+    public function getWeight(): float
     {
         return $this->weight;
     }
 
-    public function setRole(string $role) 
+    public function setRole(string $role)
     {
         $this->role = $role;
     }
 }
 
-abstract class Staff extends Person 
+abstract class Staff extends Person
 {
     protected float $salary;
     abstract public function setSalary(float $amount);
     abstract public function getSalary(): float;
 }
 
-class Doctor extends Staff 
+class Doctor extends Staff
 {
-    public function __construct(string $name) 
+    public function __construct(string $name)
     {
         parent::__construct($name);
     }
 
-    public function setSalary(float $amount) 
+    public function setSalary(float $amount)
     {
         $this->salary = $amount;
     }
 
-    public function getSalary(): float 
+    public function getSalary(): float
     {
-        return $this->salary; 
+        return $this->salary;
     }
 
-    public function setRole(string $role) 
+    public function setRole(string $role)
     {
         $this->role = $role;
     }
 }
 
-class Nurse extends Staff 
+class Nurse extends Staff
 {
-    public function __construct(string $name) 
+    public function __construct(string $name)
     {
         parent::__construct($name);
     }
 
-    public function setSalary(float $amount) 
+    public function setSalary(float $amount)
     {
         $this->salary = $amount;
     }
 
-    public function getSalary(): float 
+    public function getSalary(): float
     {
-        return $this->salary; 
+        return $this->salary;
     }
 
-    public function setRole(string $role) 
+    public function setRole(string $role)
     {
         $this->role = $role;
     }
 }
 
-class Appointment 
+class Appointment
 {
     private Patient $patient;
     private Doctor $doctor;
@@ -133,9 +137,13 @@ class Appointment
     private static int $count = 0;
     private static array $appointments = [];
 
-    public function setAppointment(Patient $patient, Doctor $doctor, 
-    array $nurses = [], \DateTime $beginTime, \DateTime $endTime)
-    {
+    public function setAppointment(
+        Patient $patient,
+        Doctor $doctor,
+        array $nurses = [],
+        \DateTime $beginTime,
+        \DateTime $endTime
+    ) {
         $this->doctor = $doctor;
         $this->nurses = $nurses;
         $this->patient = $patient;
@@ -144,40 +152,40 @@ class Appointment
         self::$appointments[] = $this;
     }
 
-    public function addNurse(array $nurses) 
+    public function addNurse(array $nurses)
     {
-        foreach ($nurses as $nurse)
-        {
+        foreach ($nurses as $nurse) {
             $this->nurses[] = $nurse;
         }
-    }    
+    }
 
-    public function getDoctor(): Doctor 
+    public function getDoctor(): Doctor
     {
         return $this->doctor;
     }
 
-    public function getNurses(): array 
+    public function getNurses(): array
     {
         return $this->nurses;
     }
 
-    public function getPatient(): Patient 
+    public function getPatient(): Patient
     {
         return $this->patient;
     }
 
-    public function getBeginTime(): string 
+    public function getBeginTime(): string
     {
         return $this->beginTime->format('Y-m-d H:i');
     }
 
-    public function getEndTime(): string 
+    public function getEndTime(): string
     {
         return $this->endTime->format('Y-m-d H:i');
     }
 
-    public static function getCount(): int {
+    public static function getCount(): int
+    {
         return ++self::$count;
     }
 
@@ -186,40 +194,39 @@ class Appointment
         return self::$appointments;
     }
 
-    public function getTimeDifference(): float 
+    public function getTimeDifference(): float
     {
         $beginTimestamp = $this->beginTime->getTimestamp();
         $endTimestamp = $this->endTime->getTimestamp();
-    
+
         $differenceInSeconds = $endTimestamp - $beginTimestamp;
-    
+
         $hours = $differenceInSeconds / 3600;
 
         return $hours;
     }
 
-    public function calculateTotalSalaries(): array 
+    public function calculateTotalSalaries(): array
     {
         $duration = $this->getTimeDifference();
-    
+
         $doctorSalary = $this->doctor->getSalary() * $duration;
-    
+
         $nurseSalaries = [];
-        
-        foreach ($this->nurses as $nurse) 
-        {
+
+        foreach ($this->nurses as $nurse) {
             $nurseSalaries[] = $nurse->getSalary() * $duration;
         }
-    
+
         return [$doctorSalary, $nurseSalaries];
     }
 
-    public function getCosts(): float 
+    public function getCosts(): float
     {
         $doctorCost = $this->calculateTotalSalaries()[0];
-    
+
         $nurseTotalSalary = array_sum($this->calculateTotalSalaries()[1]);
-    
+
         return $doctorCost + $nurseTotalSalary;
     }
 }
@@ -241,12 +248,12 @@ $nurse2 = new Nurse("Emily", "Brown", "Blonde", 160, 50);
 $nurse2->setSalary(50);
 $nurse2->setRole("Nurse");
 
-$beginTime1 = new \DateTime('2024-03-07 09:15');
-$endTime1 = new \DateTime('2024-03-07 10:05');
+$beginTime1 = new \DateTime('2024-03-15 09:15');
+$endTime1 = new \DateTime('2024-03-15 10:05');
 
-$appointment = new Appointment();
-$appointment->setAppointment($patient1, $doctor1, [], $beginTime1, $endTime1);
-$appointment->addNurse([$nurse1, $nurse2]);
+$appointment1 = new Appointment();
+$appointment1->setAppointment($patient1, $doctor1, [], $beginTime1, $endTime1);
+$appointment1->addNurse([$nurse1, $nurse2]);
 
 
 // Appointment 2
@@ -262,12 +269,12 @@ $nurse3 = new Nurse("Emma", "Brown", "Black", 170, 60);
 $nurse3->setSalary(100);
 $nurse3->setRole("Nurse");
 
-$beginTime2 = new \DateTime('2024-04-08 10:30');
-$endTime2 = new \DateTime('2024-04-08 11:05');
+$beginTime2 = new \DateTime('2024-05-08 10:30');
+$endTime2 = new \DateTime('2024-05-08 11:05');
 
-$appointment = new Appointment();
-$appointment->setAppointment($patient2, $doctor2, [], $beginTime2, $endTime2);
-$appointment->addNurse([$nurse3]);
+$appointment2 = new Appointment();
+$appointment2->setAppointment($patient2, $doctor2, [], $beginTime2, $endTime2);
+$appointment2->addNurse([$nurse3]);
 
 
 // Appointment 3
@@ -279,11 +286,11 @@ $doctor3 = new Doctor("Dr. Jim", "Brown", "Black", 175, 80);
 $doctor3->setSalary(125);
 $doctor3->setRole("Doctor");
 
-$beginTime3 = new \DateTime('2024-06-09 14:45');
-$endTime3 = new \DateTime('2024-06-09 15:15');
+$beginTime3 = new \DateTime('2024-08-23 14:45');
+$endTime3 = new \DateTime('2024-08-23 15:15');
 
-$appointment = new Appointment();
-$appointment->setAppointment($patient3, $doctor3, [], $beginTime3, $endTime3);
+$appointment3 = new Appointment();
+$appointment3->setAppointment($patient3, $doctor3, [], $beginTime3, $endTime3);
 
 
 echo "<style>";
@@ -297,8 +304,7 @@ echo "</style>";
 
 echo "<div style='margin: 0 auto; width: fit-content;'>";
 
-foreach (Appointment::getAppointments() as $appointment) 
-{
+foreach (Appointment::getAppointments() as $appointment) {
     echo "<table>";
     echo "<tr><th colspan='2'>Appointment " . Appointment::getCount() . "</th></tr>";
 
@@ -308,18 +314,18 @@ foreach (Appointment::getAppointments() as $appointment)
     echo "<li>Hair Color: " . $appointment->getPatient()->getHairColor() . "</li>";
     echo "<li>Height: " . $appointment->getPatient()->getHeight() . " cm</li>";
     echo "<li>Weight: " . $appointment->getPatient()->getWeight() . " kg</li>";
-    echo "<li>Payment: $" . number_format($appointment->getCosts(), 2) . "</li>";
+    echo "<li>Payment: €" . number_format($appointment->getCosts(), 2) . "</li>";
     echo "</ul></td></tr>";
-    
+
     echo "<tr><td>" . $appointment->getDoctor()->getRole() . "</td><td><ul>";
     echo "<li>Name: " . $appointment->getDoctor()->getName() . "</li>";
-    echo "<li>Salary: $" . number_format($appointment->calculateTotalSalaries()[0], 2) . "</li>";
+    echo "<li>Salary: €" . number_format($appointment->calculateTotalSalaries()[0], 2) . "</li>";
     echo "</ul></td></tr>";
 
     foreach ($appointment->getNurses() as $index => $nurse) {
         echo "<tr><td>" . $nurse->getRole() . "</td><td><ul>";
         echo "<li>Name: " . $nurse->getName() . "</li>";
-        echo "<li>Salary: $" . number_format($appointment->calculateTotalSalaries()[1][$index], 2) . "</li>";
+        echo "<li>Salary: €" . number_format($appointment->calculateTotalSalaries()[1][$index], 2) . "</li>";
         echo "</ul></td></tr>";
     }
 
