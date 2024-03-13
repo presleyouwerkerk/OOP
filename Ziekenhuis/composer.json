@@ -1,0 +1,15 @@
+{
+    "name": "presley/hospital",
+    "autoload": {
+        "psr-4": {
+            "Hospital\\classes\\": "src/classes"
+        }
+    },
+    "authors": [
+        {
+            "name": "Presley",
+            "email": "presley2225@gmail.com"
+        }
+    ],
+    "require": {}
+}
