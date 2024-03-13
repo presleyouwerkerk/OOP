@@ -2,7 +2,7 @@
     "name": "presley/hospital",
     "autoload": {
         "psr-4": {
-            "Hospital\\classes\\": "src/classes"
+            "Hospital\\": "src/"
         }
     },
     "authors": [
