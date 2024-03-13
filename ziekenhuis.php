@@ -244,9 +244,9 @@ $nurse2->setRole("Nurse");
 $beginTime1 = new \DateTime('2024-03-07 09:15');
 $endTime1 = new \DateTime('2024-03-07 10:05');
 
-$appointment = new Appointment();
-$appointment->setAppointment($patient1, $doctor1, [], $beginTime1, $endTime1);
-$appointment->addNurse([$nurse1, $nurse2]);
+$appointment1 = new Appointment();
+$appointment1->setAppointment($patient1, $doctor1, [], $beginTime1, $endTime1);
+$appointment1->addNurse([$nurse1, $nurse2]);
 
 
 // Appointment 2
@@ -265,9 +265,9 @@ $nurse3->setRole("Nurse");
 $beginTime2 = new \DateTime('2024-04-08 10:30');
 $endTime2 = new \DateTime('2024-04-08 11:05');
 
-$appointment = new Appointment();
-$appointment->setAppointment($patient2, $doctor2, [], $beginTime2, $endTime2);
-$appointment->addNurse([$nurse3]);
+$appointment2 = new Appointment();
+$appointment2->setAppointment($patient2, $doctor2, [], $beginTime2, $endTime2);
+$appointment2->addNurse([$nurse3]);
 
 
 // Appointment 3
@@ -282,8 +282,8 @@ $doctor3->setRole("Doctor");
 $beginTime3 = new \DateTime('2024-06-09 14:45');
 $endTime3 = new \DateTime('2024-06-09 15:15');
 
-$appointment = new Appointment();
-$appointment->setAppointment($patient3, $doctor3, [], $beginTime3, $endTime3);
+$appointment3 = new Appointment();
+$appointment3->setAppointment($patient3, $doctor3, [], $beginTime3, $endTime3);
 
 
 echo "<style>";
