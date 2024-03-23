@@ -1,13 +1,25 @@
 <?php
+// Student.php
 
-namespace Student;
+namespace Schooluitje\classes;
 
-class Student
+class Student extends Person
 {
-    private Group $classname;
+    private Group $group;
 
-    public function role()
+    public function __construct(string $name, Group $group)
     {
-        return $this->role;
+        parent::__construct($name);
+        $this->group = $group;
+    }
+
+    public function getGroup(): Group
+    {
+        return $this->group;
+    }
+
+    public function role(string $role)
+    {
+        $this->role = $role;
     }
 }
