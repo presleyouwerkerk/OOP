@@ -1,0 +1,14 @@
+{
+    "name": "presley/schooluitje",
+    "autoload": {
+        "psr-4": {
+            "Schooluitje\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Presley Ouwerkerk"
+        }
+    ],
+    "require": {}
+}
