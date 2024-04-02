@@ -1,0 +1,14 @@
+{
+    "name": "presl/dobbelspel",
+    "autoload": {
+        "psr-4": {
+            "Dobbelspel\\": "src/"
+        }
+    },  
+    "authors": [
+        {
+            "name": "Presley"
+        }
+    ],
+    "require": {}
+}
