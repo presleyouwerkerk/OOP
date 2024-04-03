@@ -19,9 +19,9 @@
 
     require __DIR__ . '/../vendor/autoload.php';
 
-    session_start();
-
     use Dobbelspel\classes\Game;
+    
+    session_start();
 
     echo "<div style='font-size: 40px; font-family: Arial;'>Dice Game</div>";
 

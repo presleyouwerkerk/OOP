@@ -45,6 +45,5 @@ class Game
     public function restartGame()
     {
         $this->results = [];
-        $this->throwCount = 0;
     }
 }
