@@ -5,27 +5,46 @@ namespace Dobbelspel\classes;
 
 class Game 
 {
-    private $dice;
-    private $throwCount;
+    private $dices = [];
+    private $maxDice = 6;
+    private $maxThrows = 3;
+    private $results = [];
 
     public function __construct() 
     {
-        $this->dice = new Dice();
-        $this->throwCount = isset($_SESSION['throwCount']) ? $_SESSION['throwCount'] : 0;
+        for ($i = 0; $i < $this->maxDice; $i++) 
+        {
+            $this->dices[] = new Dice();
+        }
     }
 
     public function play()
     {
-        $this->dice->throwDice();
-        $this->throwCount++;
-        $_SESSION["throwCount"] = $this->throwCount;
-        echo "Worp " . $this->throwCount . ": " . $this->dice->getFaceValue() . "<br/>";
+        if (count($this->results) >= $this->maxThrows) 
+        {
+            echo "You have reached the maximum limit of throws.";
+            return;
+        }
+
+        $throwResults = [];
+
+        foreach ($this->dices as $dice) 
+        {
+            $dice->throwDice();
+            $throwResults[] = $dice->getFaceValue();
+        }
+
+        $this->results[] = $throwResults;
+    }
+
+    public function getResults()
+    {
+        return $this->results;
     }
 
     public function restartGame()
     {
-        session_unset();
-            
-        session_destroy();
+        $this->results = [];
+        $this->throwCount = 0;
     }
 }
