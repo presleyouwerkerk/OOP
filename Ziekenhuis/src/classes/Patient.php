@@ -9,13 +9,9 @@ class Patient extends Person
     private float $height;
     private float $weight;
 
-    public function __construct(
-        string $name,
-        string $eyeColor,
-        string $hairColor,
-        float $height,
-        float $weight
-    ) {
+    public function __construct(string $name, string $eyeColor, string $hairColor,
+    float $height, float $weight) 
+    {
         $this->eyeColor = $eyeColor;
         $this->hairColor = $hairColor;
         $this->height = $height;

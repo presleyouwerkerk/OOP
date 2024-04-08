@@ -12,13 +12,9 @@ class Appointment
     private static int $count = 0;
     private static array $appointments = [];
 
-    public function setAppointment(
-        Patient $patient,
-        Doctor $doctor,
-        array $nurses = [],
-        \DateTime $beginTime,
-        \DateTime $endTime
-    ) {
+    public function setAppointment( Patient $patient, Doctor $doctor, array $nurses = [],
+    \DateTime $beginTime, \DateTime $endTime) 
+    {
         $this->doctor = $doctor;
         $this->nurses = $nurses;
         $this->patient = $patient;
@@ -29,7 +25,8 @@ class Appointment
 
     public function addNurse(array $nurses)
     {
-        foreach ($nurses as $nurse) {
+        foreach ($nurses as $nurse) 
+        {
             $this->nurses[] = $nurse;
         }
     }
