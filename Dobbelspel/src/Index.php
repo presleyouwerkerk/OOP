@@ -41,8 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 }
 
 $results = $game->getResults();
-$scoreboardGames = $scoreboard->getGames();
-$showDeleteButton = !empty($scoreboardGames);
+$scoreBoardGames = $scoreboard->getGames();
 ?>
 
 <!DOCTYPE html>
@@ -75,16 +74,11 @@ $showDeleteButton = !empty($scoreboardGames);
 </form>
 
 <?php
-$throwCount = 0;
-$totalScores = [];
 
-foreach ($results as $throwIndex => $throw):
-    $throwCount++;
-    $throwTotal = array_sum($throw);
-    $totalScores[$throwIndex] = $throwTotal; ?>
+foreach ($results as $throwIndex => $throw): ?>
 
-    <p>Throw <?php echo $throwCount; ?>:</p>
-    <p>Total: <?php echo $totalScores[$throwIndex]; ?></p>
+    <p>Throw <?php echo $throwIndex + 1; ?>:</p>
+    <p>Total: <?php echo array_sum($throw); ?></p>
 
     <?php foreach ($throw as $result): ?>
         <img class="dice" src="dice_svgs/<?php echo $result; ?>.svg" alt="Dice">
@@ -97,7 +91,7 @@ foreach ($results as $throwIndex => $throw):
 
 <h2>Scoreboard</h2>
 
-<?php if ($showDeleteButton): ?>
+<?php if (!empty($scoreBoardGames)): ?>
     <form method="post">
         <input type="submit" name="delete_data" value="Delete Data">
     </form>
@@ -105,13 +99,14 @@ foreach ($results as $throwIndex => $throw):
     <p>N/A</p>
 <?php endif; ?>
 
-<?php foreach ($scoreboardGames as $gameIndex => $scoreboardGame): ?>
+<?php foreach ($scoreBoardGames as $gameIndex => $scoreBoardGame): ?>
     <h3>Game <?php echo $gameIndex + 1; ?>:</h3>
 
-    <?php foreach ($scoreboardGame as $throwIndex => $throw): ?>
+    <?php foreach ($scoreBoardGame as $throwIndex => $throw): ?>
         <p>Throw <?php echo $throwIndex + 1; ?>: <?php echo array_sum($throw); ?></p>
     <?php endforeach; ?>
 
 <?php endforeach; ?>
+
 </body>
 </html>
