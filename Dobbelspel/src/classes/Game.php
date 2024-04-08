@@ -20,12 +20,6 @@ class Game
 
     public function play()
     {
-        if (count($this->results) >= $this->maxThrows) 
-        {
-            echo "You have reached the maximum limit of throws.";
-            return;
-        }
-
         $throwResults = [];
 
         foreach ($this->dices as $dice) 
