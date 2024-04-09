@@ -1,0 +1,14 @@
+{
+    "name": "presley/producten",
+    "autoload": {
+        "psr-4": {
+            "Producten\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Presley"
+        }
+    ],
+    "require": {}
+}

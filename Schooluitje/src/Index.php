@@ -1,18 +1,20 @@
 <?php
+// index.php
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use Schooluitje\classes\Student;
-use Schooluitje\classes\Teacher;
-use Schooluitje\classes\Group;
-use Schooluitje\classes\SchoolTriplist;
-use Schooluitje\classes\SchoolTrip;
+use Schooluitje\Classes\Student;
+use Schooluitje\Classes\Teacher;
+use Schooluitje\Classes\Group;
+use Schooluitje\Classes\SchoolTripList;
+use Schooluitje\Classes\SchoolTrip;
 
 $schoolTrip = new SchoolTrip();
 
 // Koningstein
 $koningsteinList = new SchoolTripList();
 $koningsteinTeacher = new Teacher('Koningstein');
+
 $koningsteinList->setTeacher($koningsteinTeacher);
 $koningsteinList->addStudentToList(new Student('Piet', new Group('sod2a')), 'Nee');
 $koningsteinList->addStudentToList(new Student('Jan', new Group('sod2a')), 'Ja');
@@ -23,6 +25,7 @@ $schoolTrip->addSchoolTripList($koningsteinList);
 // Brugge
 $bruggeList = new SchoolTripList();
 $koningsteinTeacher = new Teacher('Brugge');
+
 $bruggeList->setTeacher($koningsteinTeacher);
 $bruggeList->addStudentToList(new Student('Klaas', new Group('sod2b')), 'Ja');
 $bruggeList->addStudentToList(new Student('Mohammed', new Group('sod2a')), 'Nee');
@@ -33,6 +36,7 @@ $schoolTrip->addSchoolTripList($bruggeList);
 // Drimmelen
 $drimmelenList = new SchoolTripList();
 $koningsteinTeacher = new Teacher('Drimmelen');
+
 $drimmelenList->setTeacher($koningsteinTeacher);
 $drimmelenList->addStudentToList(new Student('Martijn', new Group('sod2b')), 'Nee');
 $drimmelenList->addStudentToList(new Student('Pieter', new Group('sod2a')), 'Ja');

@@ -1,7 +1,7 @@
 <?php
 // Teacher.php
 
-namespace Schooluitje\classes;
+namespace Schooluitje\Classes;
 
 class Teacher extends Person
 {

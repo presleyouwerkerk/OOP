@@ -1,8 +1,6 @@
 <?php
 
-// Author: Presley Ouwerkerk
-
-namespace Hospital\classes;
+namespace Hospital\Classes;
 
 abstract class Person
 {
@@ -19,10 +17,10 @@ abstract class Person
         return $this->name;
     }
 
-    abstract public function setRole(string $role);
-
     public function getRole(): string
     {
         return $this->role;
     }
+
+    abstract public function setRole(string $role);
 }

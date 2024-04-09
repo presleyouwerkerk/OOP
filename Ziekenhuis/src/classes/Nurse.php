@@ -1,6 +1,6 @@
 <?php
 
-namespace Hospital\classes;
+namespace Hospital\Classes;
 
 class Nurse extends Staff
 {

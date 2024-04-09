@@ -2,10 +2,10 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use Hospital\classes\Patient;
-use Hospital\classes\Doctor;
-use Hospital\classes\Nurse;
-use Hospital\classes\Appointment;
+use Hospital\Classes\Patient;
+use Hospital\Classes\Doctor;
+use Hospital\Classes\Nurse;
+use Hospital\Classes\Appointment;
 
 // Appointment 1
 
@@ -68,7 +68,6 @@ $endTime3 = new \DateTime('2024-08-23 15:15');
 $appointment3 = new Appointment();
 $appointment3->setAppointment($patient3, $doctor3, [], $beginTime3, $endTime3);
 
-
 echo "<style>";
 echo "table { border-collapse: collapse; width: 100%; margin-bottom: 50px; margin-left: auto; margin-right: auto; }";
 echo "th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-family: Arial, sans-serif; }";
@@ -80,7 +79,8 @@ echo "</style>";
 
 echo "<div style='margin: 0 auto; width: fit-content;'>";
 
-foreach (Appointment::getAppointments() as $appointment) {
+foreach (Appointment::getAppointments() as $appointment) 
+{
     echo "<table>";
     echo "<tr><th colspan='2'>Appointment " . Appointment::getCount() . "</th></tr>";
 
@@ -98,7 +98,8 @@ foreach (Appointment::getAppointments() as $appointment) {
     echo "<li>Salary: €" . number_format($appointment->calculateTotalSalaries()[0], 2) . "</li>";
     echo "</ul></td></tr>";
 
-    foreach ($appointment->getNurses() as $index => $nurse) {
+    foreach ($appointment->getNurses() as $index => $nurse) 
+    {
         echo "<tr><td>" . $nurse->getRole() . "</td><td><ul>";
         echo "<li>Name: " . $nurse->getName() . "</li>";
         echo "<li>Salary: €" . number_format($appointment->calculateTotalSalaries()[1][$index], 2) . "</li>";

@@ -1,7 +1,7 @@
 <?php 
-// Person.php
+// person.php
 
-namespace Schooluitje\classes;
+namespace Schooluitje\Classes;
 
 abstract class Person 
 {

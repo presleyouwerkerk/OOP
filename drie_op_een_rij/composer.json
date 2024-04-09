@@ -1,0 +1,14 @@
+{
+    "name": "presley/drie_op_een_rij",
+    "autoload": {
+        "psr-4": {
+            "DrieOpEenRij\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Presley"
+        }
+    ],
+    "require": {}
+}

@@ -1,6 +1,6 @@
 <?php
 
-namespace Hospital\classes;
+namespace Hospital\Classes;
 
 class Appointment
 {
@@ -86,7 +86,8 @@ class Appointment
 
         $nurseSalaries = [];
 
-        foreach ($this->nurses as $nurse) {
+        foreach ($this->nurses as $nurse) 
+        {
             $nurseSalaries[] = $nurse->getSalary() * $duration;
         }
 

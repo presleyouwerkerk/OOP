@@ -1,5 +1,5 @@
 {
-    "name": "presley/hospital",
+    "name": "presley/ziekenhuis",
     "autoload": {
         "psr-4": {
             "Hospital\\": "src/"
@@ -7,7 +7,7 @@
     },
     "authors": [
         {
-            "name": "Presley Ouwerkerk"
+            "name": "Presley"
         }
     ],
     "require": {}

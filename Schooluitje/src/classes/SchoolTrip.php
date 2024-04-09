@@ -1,13 +1,13 @@
 <?php
-// SchoolTrip.php
+// school_trip.php
 
-namespace Schooluitje\classes;
+namespace Schooluitje\Classes;
 
 class SchoolTrip
 {
     private array $schoolTripLists = [];
 
-    public function addSchoolTripList(SchoolTripList $schoolTripList)
+    public function addSchoolTripList(SchoolTripList $schoolTripList) 
     {
         $this->schoolTripLists[] = $schoolTripList;
     }

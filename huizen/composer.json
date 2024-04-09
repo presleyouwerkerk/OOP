@@ -1,0 +1,14 @@
+{
+    "name": "presley/huizen",
+    "autoload": {
+        "psr-4": {
+            "Huizen\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Presley"
+        }
+    ],
+    "require": {}
+}

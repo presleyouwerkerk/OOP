@@ -1,0 +1,14 @@
+{
+    "name": "presley/herberekening_huisprijs",
+    "autoload": {
+        "psr-4": {
+            "HerberekeningHuisprijs\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "presley"
+        }
+    ],
+    "require": {}
+}

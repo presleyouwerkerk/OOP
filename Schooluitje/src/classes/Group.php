@@ -1,7 +1,7 @@
 <?php
-// Group.php
+// group.php
 
-namespace Schooluitje\classes;
+namespace Schooluitje\Classes;
 
 class Group
 {

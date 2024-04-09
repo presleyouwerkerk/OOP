@@ -1,9 +1,9 @@
 <?php
-// SchoolTripList.php
+// school_trip_list.php
 
-namespace Schooluitje\classes;
+namespace Schooluitje\Classes;
 
-class SchoolTriplist
+class SchoolTripList
 {
     private array $studentList = [];
     private Teacher $teacher;
