@@ -1,0 +1,14 @@
+{
+    "name": "presley/wakken_en_de_ijsberen",
+    "autoload": {
+        "psr-4": {
+            "WakkenEnDeIjsberen\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Presley"
+        }
+    ],
+    "require": {}
+}
