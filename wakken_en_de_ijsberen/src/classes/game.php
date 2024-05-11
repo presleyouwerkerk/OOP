@@ -14,6 +14,7 @@ class Game
     private $correctGuesses = 0;
     private $falseGuesses = 0;
     private $guessResult;
+    
     const HOLES_ICEBEARS_PENGUINS = 
     [
         1 => [1, 0, 6],

@@ -88,7 +88,7 @@ $scoreboardGames = $scoreboard->getGames();
         .custom-table 
         {
             border-collapse: collapse;
-            width: 40%;
+            width: 15%;
         }
         .custom-table th, .custom-table td 
         {
@@ -109,16 +109,12 @@ if ($game->getFalseGuesses() >= 3)
     echo "<p>Ice bears only sit around a hole so they can get food.<br>
           Penguins are at the South Pole when there is a hole at the North Pole.</p>";
 }
-?>
 
-<?php
 if (count($results) > 0)
 {
     echo "<p>" . $game->getGuessResult() . "<p>";
 }
-?>
 
-<?php 
 if (isset($_SESSION['correct_guess'])) 
 {
     echo "<p>Correct guess!</p>";
@@ -223,7 +219,7 @@ if (isset($_SESSION['correct_guess']))
             ?>
             <tr>
                 <td>Score</td>
-                <td colspan="3"><?php echo $totalCorrectGuesses; ?></td>
+                <td colspan="2"><?php echo $totalCorrectGuesses; ?></td>
             </tr>
         </tbody>
     </table>
